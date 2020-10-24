@@ -43,6 +43,3 @@ predictions <- data.frame(id=taxi.test$id, trip_duration = (predict(xgb_default,
 ## write to a csv
 write.csv(predictions,"/Users/graceedriggs/Documents/STAT 495/Taxi-Duration/GD_XGB_TaxiPredictions.csv", row.names = FALSE)
 
-
-#taxi.test$dropoff_datetime <- (predict(xgb_default, newdata=taxi.test))
-#taxi.train$dur <- as.numeric(taxi.train$dropoff_datetime) - as.numeric(taxi.train$pickup_datetime)
