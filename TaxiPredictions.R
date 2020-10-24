@@ -16,7 +16,7 @@ control <- trainControl(method='repeatedcv',
                         repeats=1)
 grid <- expand.grid(
   nrounds = 200,
-  max_depth = 25,
+  max_depth = 6,
   eta = .01,
   gamma = 10,
   colsample_bytree = 1,
@@ -29,7 +29,7 @@ set.seed(123)
 # Testing with only 10000 values to get the right tuning parameters
 xgb_default <- train(trip_duration ~ ., 
                     data=taxi.train %>% select(-id, -dropoff_datetime) %>%
-                      slice(sample(nrow(taxi.train), 500000)), 
+                      slice(sample(nrow(taxi.train), 1000000)), 
                     method='xgbTree', 
                     trControl=control,
                     tuneGrid = grid)
